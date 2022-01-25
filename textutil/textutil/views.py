@@ -10,14 +10,14 @@ def index(request) :
     return response
 
 def analyze(request):
-    text = request.GET.get('mytext' ,'blank')
-    punchuationoption = request.GET.get('removepunc' , 'off')
-    allcapsoption = request.GET.get('allcaps' , 'off')
-    allsmalloption = request.GET.get('allsmall' , 'off')
-    removelineoption = request.GET.get('removeline' , 'off')
-    removespaceoption = request.GET.get('removespace' , 'off')
-    charcountoption = request.GET.get('charcount' , 'off')
-
+    text = request.POST.get('mytext' ,'blank')
+    punchuationoption = request.POST.get('removepunc' , 'off')
+    allcapsoption = request.POST.get('allcaps' , 'off')
+    allsmalloption = request.POST.get('allsmall' , 'off')
+    removelineoption = request.POST.get('removeline' , 'off')
+    removespaceoption = request.POST.get('removespace' , 'off')
+    charcountoption = request.POST.get('charcount' , 'off')
+    print(text)
     if punchuationoption == 'on' :
         allpunch = '''!{},|\<>?/,.'-+[];'''  
         purpose = "Remove Punchuation"
@@ -52,7 +52,7 @@ def analyze(request):
         purpose = "Remove New Line"
         analyzed = ""
         for charcter  in text :
-            if charcter != "\n" :
+            if charcter != "\n" and charcter != "\r" :
                 analyzed += charcter 
         
         analyzeddata = analyzed 

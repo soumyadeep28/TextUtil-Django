@@ -19,7 +19,7 @@ from textutil import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('' , views.index),
-    path('about' , views.readfile),
+    path('about/' , views.readfile),
     path('task1/' , views.task1),
     path('analyze/' , views.analyze , name='analyze')
 ]
